@@ -1,0 +1,26 @@
+.add-btn {
+    margin-left: 10px;
+}
+
+.column {
+    margin-top: 10px;
+}
+
+.logo {
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal-resource-btn {
+    margin: 10px;
+}
+
+.resource-quantity-lbl {
+    width: 35%;
+    float: right;
+}
+
+.trade-btn {
+    float: right;
+}
