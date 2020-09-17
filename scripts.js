@@ -1,9 +1,17 @@
 var ResourcesArray = ["Blacksmith", "Farm", "Gold", "Herb", "Quarry", "Vineyard", "Wood"]
+
+class Resource {
+    constructor(name, amount) {
+        this.name = name;
+        this.amount = amount;
+        this.image = "images/" + this.name + "Icon.png";
+    }
+}
+
 $(document).ready(function(){
     createResourceCards();
     goldStatus()
     // Click Events
-    
         // add
         $(".add-btn").click(function(){
             console.log("add")
@@ -58,13 +66,6 @@ $(document).ready(function(){
                 // QuantityLabel.value ++ 
             }
         })
-        // $(".trade-btn").click(function tradeForResource(){
-
-        //     if ($(this).attr("data-id") == "Gold"){
-               
-        //     }
-        // })
-
         // Runs goldStatus function when Gold Label focus is lost
         $("#GoldlblQuantity").focusout(function() {
             goldStatus()
@@ -72,24 +73,7 @@ $(document).ready(function(){
 
 })
 
-class Resource {
-    constructor(name, amount) {
-        this.name = name;
-        this.amount = amount;
-        this.image = "images/" + this.name + "Icon.png";
-    }
-  
-    // add() {
-    //     this.amount += 1
-    // }
-    // subtract() {
-    //     this.amount -= 1
-    // }
-    // trade() {
-    //     console.log(this.name)
-    // }
-}
-
+// Creates new instance of Resource class based on the Resources Array
 function createNewResourceClassInstance() {
     for (i = 0; i < ResourcesArray.length; i++) {
         return ResourcesArray.map(item => new Resource(item, 0));
@@ -109,7 +93,7 @@ function createResourceCards() {
         // Resource Image
         Img = document.createElement("img")
         Img.setAttribute("class", "thumbnail")
-        //Img.setAttribute("src", "images/" + resources[i].name + "Icon.png")
+        Img.setAttribute("src", "images/" + resources[i].name + "Icon.png")
 
         // Resource Quantity
         Input = document.createElement("input")
