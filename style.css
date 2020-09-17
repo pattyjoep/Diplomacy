@@ -1,5 +1,6 @@
-.add-btn {
+.add-btn, .minus-btn {
     margin-left: 10px;
+    float: left;
 }
 
 .column {
@@ -12,7 +13,7 @@
     margin-right: auto;
 }
 
-.modal-resource-btn {
+.trade-modal-resource-btn {
     margin: 10px;
 }
 
