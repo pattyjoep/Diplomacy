@@ -16,7 +16,7 @@
 <body id="body">
     <!-- Nav Bar -->
     <nav class="navbar navbar-dark bg-dark">
-        <button class="show-rules-btn" data-toggle="tooltip" data-placement="bottom" title="Rules">
+        <button class="show-rules-btn" data-toggle="modal" data-target="#RulesModal">
           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-ruled" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v4h10V2a1 1 0 0 0-1-1H4zm9 6H6v2h7V7zm0 3H6v2h7v-2zm0 3H6v2h6a1 1 0 0 0 1-1v-1zm-8 2v-2H3v1a1 1 0 0 0 1 1h1zm-2-3h2v-2H3v2zm0-3h2V7H3v2z"/>
           </svg>
@@ -62,24 +62,39 @@
           </div>
         </div>
     </div>
-    <!-- Rules Modal -->
-    <div class="modal fade" id="RulesModalCenter" tabindex="-1" role="dialog" aria-labelledby="RulesModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
+    <!-- Modal -->
+    <div class="modal fade" id="RulesModal" tabindex="-1" aria-labelledby="RulesModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="RulesModalCenterTitle">Game Rules</h5>
+            <h5 class="modal-title" id="RulesModalLabel">Game Rules</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div id="RulesModalBody" class="modal-body">
-            Rules
+          <div class="modal-body">
+            <h6>Gameplay</h6>
+            <ul>
+              <p>Number of Players: 3-6</p>
+              <p></p>
+              <p></p>
+            </ul>
+            <h6>Trading Resources</h6>
+            <ul>
+              <p>Players are able to trade resources during their turn</p>
+              <p>Trades are conducted on a 2 for 1 ratio, meaning it costs two resources for one of another resource</p>
+              <p>However, resources cannot be traded for one another, they have to be traded for Gold first then that Gold can be traded for the desired resource</p>
+              <p></p>
+              <p></p>
+              <p></p>
+            </ul>
           </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-danger modal-cancel" data-dismiss="modal">Cancel</button>
+            <input class="rules-searchbar" type="search" placeholder="Search Game Rules" aria-label="Search"></input>
           </div>
         </div>
       </div>
+    </div>
 </body>
 
 <!-- Bootstrap JS, Popper.js, and jQuery -->

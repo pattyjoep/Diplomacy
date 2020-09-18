@@ -1,3 +1,6 @@
+.btn {
+    border-radius: 5px;
+}
 .add-btn, .minus-btn {
     margin-left: 10px;
     float: left;
@@ -9,6 +12,15 @@
     padding: 5px;
     box-shadow: 1px 0px 2px 1px grey;
     border-radius: 5px; */
+}
+
+.modal-title {
+    font-weight: Bold;
+}
+
+h6 {
+    text-decoration: underline;
+    font-weight: Bold;
 }
 
 .logo {
@@ -28,6 +40,12 @@
 
 .resource-quantity-lbl {
     width: 35%;
+    float: right;
+}
+
+.rules-searchbar {
+    width: 100%;
+    border-radius: 5px;
     float: right;
 }
 

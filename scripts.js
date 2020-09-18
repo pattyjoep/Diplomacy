@@ -95,12 +95,6 @@ $(document).ready(function(){
             }
         })
 
-        // Shows Rules modal
-        $(".show-rules-btn").click(function(){
-            var RulesModal = $("#RulesModalCenter")
-            RulesModal.trigger("focus");
-            
-        })
         // Runs goldStatus function when cursor / keyboard focus on Gold Label is lost
         $("#GoldlblQuantity").focusout(function(){
             goldStatus()
