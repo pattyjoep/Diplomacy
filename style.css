@@ -5,6 +5,10 @@
 
 .column {
     margin-top: 10px;
+    /* border: 1px solid grey;
+    padding: 5px;
+    box-shadow: 1px 0px 2px 1px grey;
+    border-radius: 5px; */
 }
 
 .logo {
@@ -15,6 +19,11 @@
 
 .trade-modal-resource-btn {
     margin: 10px;
+}
+
+.reset-resources-btn, .show-rules-btn {
+    color: white;
+    padding: 5px;
 }
 
 .resource-quantity-lbl {

@@ -10,7 +10,7 @@ class Resource {
 
 $(document).ready(function(){
     createResourceCards();
-    goldStatus()
+    goldStatus();
     // Click Events
         // add
         $(".add-btn").click(function(){
@@ -84,20 +84,32 @@ $(document).ready(function(){
                     Goldlbl.value -=2
                     QuantityLabel.value ++ 
                 }
-                // TradeModal.toggle()
             })
         })
-    
-        // Runs goldStatus function when cursor / keyboard focus on Gold Label is lost
-        $("#GoldlblQuantity").focusout(function() {
-            goldStatus()
+        // Resets all resource quantities to 0
+        $(".reset-resources-btn").click(function(){
+            console.log("Test")
+            for (i = 0; i < resources.length; i++){
+                resources[i].amount = 0
+                window.location.reload()
+            }
         })
 
+        // Shows Rules modal
+        $(".show-rules-btn").click(function(){
+            var RulesModal = $("#RulesModalCenter")
+            RulesModal.trigger("focus");
+            
+        })
+        // Runs goldStatus function when cursor / keyboard focus on Gold Label is lost
+        $("#GoldlblQuantity").focusout(function(){
+            goldStatus()
+        })
 })
 
 // Creates new instance of Resource class based on the Resources Array
-function createNewResourceClassInstance() {
-    for (i = 0; i < ResourcesArray.length; i++) {
+function createNewResourceClassInstance(){
+    for (i = 0; i < ResourcesArray.length; i++){
         return ResourcesArray.map(item => new Resource(item, 0));
     }
 }
