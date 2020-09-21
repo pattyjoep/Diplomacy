@@ -94,10 +94,13 @@ $(document).ready(function(){
                 window.location.reload()
             }
         })
-
         // Runs goldStatus function when cursor / keyboard focus on Gold Label is lost
         $("#GoldlblQuantity").focusout(function(){
             goldStatus()
+        })
+        // Runs Search function
+        $("#RulesSearch").keyup(function(){
+            console.log("Search")
         })
 })
 

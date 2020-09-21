@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- Foundation -->
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <!--Favicon -->
@@ -73,24 +75,75 @@
             </button>
           </div>
           <div class="modal-body">
-            <h6>Gameplay</h6>
-            <ul>
-              <p>Number of Players: 3-6</p>
-              <p></p>
-              <p></p>
-            </ul>
-            <h6>Trading Resources</h6>
-            <ul>
-              <p>Players are able to trade resources during their turn</p>
-              <p>Trades are conducted on a 2 for 1 ratio, meaning it costs two resources for one of another resource</p>
-              <p>However, resources cannot be traded for one another, they have to be traded for Gold first then that Gold can be traded for the desired resource</p>
-              <p></p>
-              <p></p>
-              <p></p>
-            </ul>
+            <table style="width:100%; text-align: center;">
+              <tr>
+                <th>Number of Players</th>
+                <th>Ages</th>
+                <th>Time</th>
+              </tr>
+              <tr>
+                <td>3 - 6</td>
+                <td>12+</td>
+                <td>Varies</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+
+            <div class="accordion" id="accordionExample">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne"  aria-expanded="false" aria-controls="collapseOne">
+                      Gameplay
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="card-body">
+                    Gameplay here....
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Trading Resources
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <p>Players are able to trade resources during their turn</p>
+                    <p>Trades are conducted on a 2 for 1 ratio, meaning it costs two resources for one of another resource</p>
+                    <p>However, resources cannot be traded for one another, they have to be traded for Gold first then that Gold can be traded for the desired resource, also on a 2 for 1 ratio</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Collapsible Group Item #3
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                  <div class="card-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="modal-footer">
-            <input class="rules-searchbar" type="search" placeholder="Search Game Rules" aria-label="Search"></input>
+            <input id="RulesSearch" class="rules-searchbar" type="search" placeholder="Search Game Rules" aria-label="Search">  
+            </input>
+            <!-- <i class="fa fa-search"></i> -->
           </div>
         </div>
       </div>

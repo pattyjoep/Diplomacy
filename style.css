@@ -47,6 +47,9 @@ h6 {
     width: 100%;
     border-radius: 5px;
     float: right;
+    /* background-image: url('images/SearchIcon.png'); 
+    background-position: 5px 5px;
+    background-repeat: no-repeat; */
 }
 
 .trade-btn {
