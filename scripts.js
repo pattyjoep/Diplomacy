@@ -123,7 +123,9 @@ function createResourceCards() {
         // Resource Image
         Img = document.createElement("img")
         Img.setAttribute("class", "thumbnail")
-        //Img.setAttribute("src", "images/" + resources[i].name + "Icon.png")
+        Img.setAttribute("src", "images/DiplomacyFavicon.png")
+        //"images/" + resources[i].name + "Icon.png")
+        //https://via.placeholder.com/250
         // Resource Quantity
         Input = document.createElement("input")
         Input.setAttribute("id", resources[i].name + "lblQuantity")
@@ -134,6 +136,9 @@ function createResourceCards() {
         Header = document.createElement("h5")
         Header.setAttribute("id", resources[i].name + "Header")
         Header.innerHTML = resources[i].name
+
+        BtnDiv = document.createElement("div")
+        BtnDiv.setAttribute("class", "resource-function-btnDiv")
         // Add Button
         AddBtn = document.createElement("button")
         AddBtn.setAttribute("id", resources[i].name)
@@ -155,9 +160,10 @@ function createResourceCards() {
             TradeBtn.setAttribute("data-target","#TradeModalCenter")
         }
         // Appends
+        BtnDiv.append(SubtractBtn, AddBtn, TradeBtn)
         Header.append(Input)
         Row.append(Column)
-        Column.append(Img, Header, SubtractBtn, AddBtn, TradeBtn)
+        Column.append(Img, Header, BtnDiv)
     }
     
 }
