@@ -8,6 +8,8 @@ class Resource {
     }
 }
 
+Storage = window.localStorage;
+
 $(document).ready(function(){
     createResourceCards();
     goldStatus();
@@ -18,9 +20,11 @@ $(document).ready(function(){
             var QuantityLabelID = ID + "lblQuantity"
             var QuantityLabel = document.getElementById(QuantityLabelID)
 
-            console.log("add")
+            console.log("Add" + " " + ID)
             QuantityLabel.value ++
             goldStatus()
+
+            localStorage.setItem(ID, QuantityLabel.value)
         })
         // Subtract
         $(".minus-btn").click(function(){
@@ -28,9 +32,11 @@ $(document).ready(function(){
             var QuantityLabelID = ID + "lblQuantity"
             var QuantityLabel = document.getElementById(QuantityLabelID)
             
-            console.log("minus")
+            console.log("Minus" + " " + ID)
             QuantityLabel.value --
             goldStatus()
+
+            localStorage.setItem(ID, QuantityLabel.value)
         })
         // Trade
         $(".trade-btn").click(function trade(){
@@ -46,9 +52,11 @@ $(document).ready(function(){
                     alert("Insufficent resources to trade")
                 }
                     else {
+                        console.log("Trade" + " " + ID + " " + "For Gold")
                         Goldlbl.value ++
                         QuantityLabel.value -=2
-                        console.log("Trade Resource For Gold")
+
+                        localStorage.setItem(ID, QuantityLabel.value)
                     }
                 goldStatus()
             }
@@ -57,7 +65,6 @@ $(document).ready(function(){
                 var ID = $(this).attr("id")
                 var QuantityLabelID = ID + "lblQuantity"
                 var QuantityLabel = document.getElementById(QuantityLabelID)
-                console.log("Trade Gold For Resource")
                 
                 TradeModal.empty()
                 for (i = 0; i < ResourcesArray.length; i++) {
@@ -81,8 +88,11 @@ $(document).ready(function(){
                     alert("Insufficent resources to trade")
                 }
                 else {
+                    console.log("Trade" + " " + ID + " " + "For" + " " + DataTarget)
                     Goldlbl.value -=2
                     QuantityLabel.value ++ 
+
+                    localStorage.setItem(ID, QuantityLabel.value)
                 }
             })
         })
@@ -96,6 +106,7 @@ $(document).ready(function(){
 
                 QuantityLabel.value = 0
             }
+            goldStatus();
         })
         // Runs goldStatus function when cursor / keyboard focus on Gold Label is lost
         $("#GoldlblQuantity").focusout(function(){
@@ -139,7 +150,7 @@ function createResourceCards() {
         Header = document.createElement("h5")
         Header.setAttribute("id", resources[i].name + "Header")
         Header.innerHTML = resources[i].name
-
+        // Btn Div
         BtnDiv = document.createElement("div")
         BtnDiv.setAttribute("class", "resource-function-btnDiv")
         // Add Button
@@ -148,14 +159,12 @@ function createResourceCards() {
         AddBtn = document.createElement("button")
         AddBtn.setAttribute("id", resources[i].name)
         AddBtn.setAttribute("class", "btn btn-success add-btn")
-        //AddBtn.innerText = "+"
         // Subtract Button
         var iTagMinus = document.createElement("i")
         iTagMinus.setAttribute("class", "fa fa-minus")
         SubtractBtn = document.createElement("button")
         SubtractBtn.setAttribute("id", resources[i].name)
         SubtractBtn.setAttribute("class", "btn btn-danger minus-btn")
-        //SubtractBtn.innerText = "-"
         // Trade Button
         var iTagTrade = document.createElement("i")
         iTagTrade.setAttribute("class", "fa fa-exchange")
@@ -163,7 +172,7 @@ function createResourceCards() {
         TradeBtn.setAttribute("id", resources[i].name)
         TradeBtn.setAttribute("class", "btn btn-outline-primary trade-btn")
         TradeBtn.setAttribute("data-id", resources[i].name)
-        //Adds datta-toggle attribute to Golde trade Btn
+        //Adds data-toggle attribute to Golde trade Btn
         if (resources[i].name === "Gold"){
             TradeBtn.setAttribute("data-toggle","modal")
             TradeBtn.setAttribute("data-target","#TradeModalCenter")
@@ -203,8 +212,4 @@ function goldStatus(){
     // else if (Label.value == 70) {
     //     StatusBar.classList.add("gold-progress-bar-complete")
     // }
-}
-   
-function localStorage() {
-
 }
