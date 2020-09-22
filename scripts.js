@@ -90,8 +90,11 @@ $(document).ready(function(){
         $(".reset-resources-btn").click(function(){
             console.log("Test")
             for (i = 0; i < resources.length; i++){
-                resources[i].amount = 0
-                window.location.reload()
+                var ID = resources[i].name
+                var QuantityLabelID = ID + "lblQuantity"
+                var QuantityLabel = document.getElementById(QuantityLabelID)
+
+                QuantityLabel.value = 0
             }
         })
         // Runs goldStatus function when cursor / keyboard focus on Gold Label is lost
@@ -123,7 +126,7 @@ function createResourceCards() {
         // Resource Image
         Img = document.createElement("img")
         Img.setAttribute("class", "thumbnail")
-        Img.setAttribute("src", "images/DiplomacyFavicon.png")
+        Img.setAttribute("src", "https://via.placeholder.com/250")
         //"images/" + resources[i].name + "Icon.png")
         //https://via.placeholder.com/250
         // Resource Quantity
@@ -140,26 +143,35 @@ function createResourceCards() {
         BtnDiv = document.createElement("div")
         BtnDiv.setAttribute("class", "resource-function-btnDiv")
         // Add Button
+        var iTagPlus = document.createElement("i")
+        iTagPlus.setAttribute("class", "fa fa-plus")
         AddBtn = document.createElement("button")
         AddBtn.setAttribute("id", resources[i].name)
         AddBtn.setAttribute("class", "btn btn-success add-btn")
-        AddBtn.innerText = "+"
+        //AddBtn.innerText = "+"
         // Subtract Button
+        var iTagMinus = document.createElement("i")
+        iTagMinus.setAttribute("class", "fa fa-minus")
         SubtractBtn = document.createElement("button")
         SubtractBtn.setAttribute("id", resources[i].name)
         SubtractBtn.setAttribute("class", "btn btn-danger minus-btn")
-        SubtractBtn.innerText = "-"
+        //SubtractBtn.innerText = "-"
         // Trade Button
+        var iTagTrade = document.createElement("i")
+        iTagTrade.setAttribute("class", "fa fa-exchange")
         TradeBtn = document.createElement("button")
         TradeBtn.setAttribute("id", resources[i].name)
         TradeBtn.setAttribute("class", "btn btn-outline-primary trade-btn")
         TradeBtn.setAttribute("data-id", resources[i].name)
-        TradeBtn.innerText = "Trade"
+        //Adds datta-toggle attribute to Golde trade Btn
         if (resources[i].name === "Gold"){
             TradeBtn.setAttribute("data-toggle","modal")
             TradeBtn.setAttribute("data-target","#TradeModalCenter")
         }
         // Appends
+        AddBtn.append(iTagPlus)
+        SubtractBtn.append(iTagMinus )
+        TradeBtn.append(iTagTrade)
         BtnDiv.append(SubtractBtn, AddBtn, TradeBtn)
         Header.append(Input)
         Row.append(Column)
