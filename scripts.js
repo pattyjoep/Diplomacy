@@ -24,7 +24,13 @@ $(document).ready(function(){
             QuantityLabel.value ++
             goldStatus()
 
-            localStorage.setItem(ID, QuantityLabel.value)
+            if (typeof(Storage) !== "undefined") {
+                // Store
+                localStorage.setItem(ID, QuantityLabel.value)
+            } else {
+                // document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+              }
+            $(QuantityLabelID).attr("value", localStorage.getItem(QuantityLabel.value))
         })
         // Subtract
         $(".minus-btn").click(function(){
@@ -36,7 +42,12 @@ $(document).ready(function(){
             QuantityLabel.value --
             goldStatus()
 
-            localStorage.setItem(ID, QuantityLabel.value)
+            if (typeof(Storage) !== "undefined") {
+                // Store
+                localStorage.setItem(ID, QuantityLabel.value)
+            } else {
+                // document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+              }
         })
         // Trade
         $(".trade-btn").click(function trade(){
@@ -50,13 +61,17 @@ $(document).ready(function(){
 
                 if (QuantityLabel.value < 2){
                     alert("Insufficent resources to trade")
-                }
-                    else {
+                } else {
                         console.log("Trade" + " " + ID + " " + "For Gold")
                         Goldlbl.value ++
                         QuantityLabel.value -=2
 
-                        localStorage.setItem(ID, QuantityLabel.value)
+                        if (typeof(Storage) !== "undefined") {
+                            // Store
+                            localStorage.setItem(ID, QuantityLabel.value)
+                        } else {
+                            // document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+                          }
                     }
                 goldStatus()
             }
@@ -86,13 +101,17 @@ $(document).ready(function(){
 
                 if (Goldlbl.value < 2){
                     alert("Insufficent resources to trade")
-                }
-                else {
+                } else {
                     console.log("Trade" + " " + ID + " " + "For" + " " + DataTarget)
                     Goldlbl.value -=2
                     QuantityLabel.value ++ 
 
-                    localStorage.setItem(ID, QuantityLabel.value)
+                    if (typeof(Storage) !== "undefined") {
+                        // Store
+                        localStorage.setItem(ID, QuantityLabel.value)
+                    } else {
+                        // document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+                      }
                 }
             })
         })
@@ -145,7 +164,17 @@ function createResourceCards() {
         Input.setAttribute("id", resources[i].name + "lblQuantity")
         Input.setAttribute("class", "resource-quantity-lbl")
         Input.setAttribute("data-id", resources[i].name)
-        Input.setAttribute("value", resources[i].amount)
+        //Input.setAttribute("value", resources[i].amount)
+
+        // Sets Local Storage for Resources/ Input Amounts
+        if (typeof(Storage) !== "undefined") {
+            // Store
+            localStorage.setItem(resources[i].name, resources[i].amount)
+            // Input.setAttribute("value", localStorage.getItem(resources[i].name))
+        } else {
+            // document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+        }
+
         // Resource Label
         Header = document.createElement("h5")
         Header.setAttribute("id", resources[i].name + "Header")
@@ -186,7 +215,6 @@ function createResourceCards() {
         Row.append(Column)
         Column.append(Img, Header, BtnDiv)
     }
-    
 }
 
 function goldStatus(){
@@ -200,16 +228,9 @@ function goldStatus(){
     }
     if (Label.value == 70){
         alert("YOU WIN!")
-    }
-    else {
+    } 
+}
 
-    }
-    
-    // if (Label.value == 35){
-    //     //StatusBar.classList.add("gold-progress-bar-half")
-    //     StatusBar.style.width = "50%"
-    // }
-    // else if (Label.value == 70) {
-    //     StatusBar.classList.add("gold-progress-bar-complete")
-    // }
+function getLocalStorage(){
+    localStorage.getItem(resources[i].name)
 }
