@@ -13,6 +13,7 @@ Storage = window.localStorage;
 $(document).ready(function(){
     createResourceCards();
     goldStatus();
+    getLocalStorage()
     // Click Events
         // add
         $(".add-btn").click(function(){
@@ -30,7 +31,7 @@ $(document).ready(function(){
             } else {
                 // document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
               }
-            $(QuantityLabelID).attr("value", localStorage.getItem(QuantityLabel.value))
+              //$(QuantityLabelID).attr("value", localStorage.getItem(QuantityLabel.value))
         })
         // Subtract
         $(".minus-btn").click(function(){
@@ -123,7 +124,8 @@ $(document).ready(function(){
                 var QuantityLabelID = ID + "lblQuantity"
                 var QuantityLabel = document.getElementById(QuantityLabelID)
 
-                QuantityLabel.value = 0
+                localStorage.setItem(ID, 0)
+                QuantityLabel.value = localStorage.getItem(ID)
             }
             goldStatus();
         })
@@ -131,6 +133,26 @@ $(document).ready(function(){
         $("#GoldlblQuantity").focusout(function(){
             goldStatus()
         })
+      
+        $(".resource-quantity-lbl").focusout(function(){
+            var ID = $(this).attr("id")
+            var QuantityLabel = document.getElementById(ID)
+
+            var DataID = $(this).attr("data-id")
+
+            // console.log(DataID)
+            console.log(QuantityLabel.value)
+
+            if (typeof(Storage) !== "undefined") {
+                // Store
+                localStorage.setItem(DataID, QuantityLabel.value)
+            } else {
+                // document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+              }
+            goldStatus()
+        })
+
+
         // Runs Search function
         $("#RulesSearch").keyup(function(){
             console.log("Search")
@@ -164,16 +186,17 @@ function createResourceCards() {
         Input.setAttribute("id", resources[i].name + "lblQuantity")
         Input.setAttribute("class", "resource-quantity-lbl")
         Input.setAttribute("data-id", resources[i].name)
-        //Input.setAttribute("value", resources[i].amount)
 
-        // Sets Local Storage for Resources/ Input Amounts
-        if (typeof(Storage) !== "undefined") {
-            // Store
-            localStorage.setItem(resources[i].name, resources[i].amount)
-            // Input.setAttribute("value", localStorage.getItem(resources[i].name))
-        } else {
-            // document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
-        }
+        // Sets inital local storage items if doesnt already exist
+        if (localStorage.getItem(resources[i].name) === null) {
+            if (typeof(Storage) !== "undefined") {
+                // Store
+                localStorage.setItem(resources[i].name, resources[i].amount)
+                Input.setAttribute("value", localStorage.getItem(resources[i].name))
+            } else {
+                // document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+            }
+          }
 
         // Resource Label
         Header = document.createElement("h5")
@@ -232,5 +255,12 @@ function goldStatus(){
 }
 
 function getLocalStorage(){
-    localStorage.getItem(resources[i].name)
+    for (i = 0; i < resources.length; i++){
+        var ID = resources[i].name
+        var QuantityLabelID = ID + "lblQuantity"
+        var QuantityLabel = document.getElementById(QuantityLabelID)
+
+        QuantityLabel.value = localStorage.getItem(ID)
+    }
+    goldStatus();
 }
