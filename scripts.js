@@ -98,7 +98,7 @@ $(document).ready(function(){
              // Modal Trade Gold For Resource
             $(".trade-modal-resource-btn").click(function modalTrade(){
                 var Goldlbl = document.getElementById("GoldlblQuantity")
-                var DataTarget = $(this).attr("Data-Target")
+                var DataTarget = $(this).attr("data-target")
                 var QuantityLabelID = DataTarget + "lblQuantity"
                 var QuantityLabel = document.getElementById(QuantityLabelID)
 
@@ -112,11 +112,12 @@ $(document).ready(function(){
                     if (typeof(Storage) !== "undefined") {
                         // Store
                         localStorage.setItem(Goldlbl.getAttribute("data-id"), Goldlbl.value)
-                        localStorage.setItem(ID, QuantityLabel.value)
+                        localStorage.setItem(DataTarget, QuantityLabel.value)
                     } else {
                         // document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
                       }
                 }
+                goldStatus();
             })
         })
         // Resets all resource quantities to 0
