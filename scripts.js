@@ -56,6 +56,7 @@ $(document).ready(function(){
             // Trades any Resource for Gold - 2 for 1 ratio
             if ($(this).attr("data-id") !== "Gold"){
                 var Goldlbl = document.getElementById("GoldlblQuantity")
+
                 var ID = $(this).attr("id")
                 var QuantityLabelID = ID + "lblQuantity"
                 var QuantityLabel = document.getElementById(QuantityLabelID)
@@ -70,6 +71,7 @@ $(document).ready(function(){
                         if (typeof(Storage) !== "undefined") {
                             // Store
                             localStorage.setItem(ID, QuantityLabel.value)
+                            localStorage.setItem(Goldlbl.getAttribute("data-id"), Goldlbl.value)
                         } else {
                             // document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
                           }
@@ -109,6 +111,7 @@ $(document).ready(function(){
 
                     if (typeof(Storage) !== "undefined") {
                         // Store
+                        localStorage.setItem(Goldlbl.getAttribute("data-id"), Goldlbl.value)
                         localStorage.setItem(ID, QuantityLabel.value)
                     } else {
                         // document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
@@ -118,7 +121,7 @@ $(document).ready(function(){
         })
         // Resets all resource quantities to 0
         $(".reset-resources-btn").click(function(){
-            console.log("Test")
+            console.log("Reset all resource quantities to 0")
             for (i = 0; i < resources.length; i++){
                 var ID = resources[i].name
                 var QuantityLabelID = ID + "lblQuantity"
