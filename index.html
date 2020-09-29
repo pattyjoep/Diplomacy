@@ -19,13 +19,12 @@
     <!-- Nav Bar -->
     <nav class="navbar navbar-dark bg-dark">
         <button class="show-rules-btn" data-toggle="modal" data-target="#RulesModal">
-          <i class="fa fa-book"></i>
-          Rules
+          <i class="fa fa-book"></i> Rules
         </button>
         <img class="logo" src="images/DiplomacyLogoText.png"></img>
         <!-- Reset Resource Amounts Btn -->
-        <button class="reset-resources-btn">
-          <i class="fa fa-undo"></i>
+        <button class="reset-resources-btn" data-toggle="modal" data-target= "#ResetResourcesModal">
+          <i class="fa fa-undo"></i> Reset
         </button>
     </nav>
     <!-- Gold Progress Bar -->
@@ -137,7 +136,27 @@
           </div>
         </div>
       </div>
+    </div> <!-- End Rules Modal -->
+    <!-- Reset Resources Modal -->
+    <div class="modal fade" id="ResetResourcesModal" tabindex="-1" role="dialog" aria-labelledby="ResetResourcesModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ResetResourcesModalTitle">Reset Resource Quantities</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div id="ResetResourcesModalBody" class="modal-body">
+            <p>Are you sure you want to reset all resource quantities back to 0?</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-outline-danger modal-cancel" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-success">Reset All Resources</button>
+          </div>
+        </div>
     </div>
+  </div> <!-- End Reset Resources Modal -->
 </body>
 
 <!-- Bootstrap JS, Popper.js, and jQuery -->
