@@ -182,7 +182,8 @@ function createResourceCards() {
         // Resource Image
         Img = document.createElement("img")
         Img.setAttribute("class", "thumbnail")
-        Img.setAttribute("src", "https://via.placeholder.com/250")
+        Img.setAttribute("src", "images/" + resources[i].name + "Icon.png")
+        //https://via.placeholder.com/250"
         //"images/" + resources[i].name + "Icon.png")
         //https://via.placeholder.com/250
         // Resource Quantity
