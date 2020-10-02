@@ -227,12 +227,13 @@ function createResourceCards() {
         iTagTrade.setAttribute("class", "fa fa-exchange")
         TradeBtn = document.createElement("button")
         TradeBtn.setAttribute("id", resources[i].name)
-        TradeBtn.setAttribute("class", "btn btn-outline-primary trade-btn")
+        TradeBtn.setAttribute("class", "btn btn-outline-warning trade-btn")
         TradeBtn.setAttribute("data-id", resources[i].name)
         //Adds data-toggle attribute to Golde trade Btn
         if (resources[i].name === "Gold"){
             TradeBtn.setAttribute("data-toggle","modal")
             TradeBtn.setAttribute("data-target","#TradeModalCenter")
+            TradeBtn.setAttribute("class", "btn btn-outline-primary trade-btn")
         }
         // Appends
         AddBtn.append(iTagPlus)
