@@ -50,6 +50,8 @@ h6 {
 .resource-quantity-lbl {
     width: 35%;
     float: right;
+    border: none;
+    text-align: right;
 }
 
 .rules-searchbar {
