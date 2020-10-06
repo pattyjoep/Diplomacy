@@ -76,3 +76,7 @@ td, th {
 .trade-btn {
     float: right;
 }
+
+.ways-to-win-list {
+    margin-left: 15px;
+}

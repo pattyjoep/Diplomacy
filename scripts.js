@@ -144,9 +144,6 @@ $(document).ready(function(){
 
             var DataID = $(this).attr("data-id")
 
-            // console.log(DataID)
-            console.log(QuantityLabel.value)
-
             if (typeof(Storage) !== "undefined") {
                 // Store
                 localStorage.setItem(DataID, QuantityLabel.value)
